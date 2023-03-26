@@ -53,3 +53,7 @@ if [[ ${COUNTER} -gt 0 ]]; then
 else
     echo "someone was here"
 fi
+
+DATE=$(date "+%Y-%m-%d")
+zip -r bakap_${DATE}.zip ${TARGET_DIR}
+rm -rf ${TARGET_DIR}

@@ -17,6 +17,6 @@ touch ${SOURCE_DIR}/test6
 touch ${SOURCE_DIR}/test7
 touch ${SOURCE_DIR}/test8
 
-rm -rf ${TARGET_DIR}
+rm *.zip
 
 echo -e "test1\ntest2\ntest3" > ${RM_LIST}
