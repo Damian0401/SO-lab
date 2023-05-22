@@ -1,6 +1,6 @@
 from random import Random
 
-from studentA import Move
+from studentA import Move, is_game_over
 
 import signal
 
@@ -14,6 +14,16 @@ def ai_move(board):
         for j in range(0, len(board)):
             if board[i][j] == Move.EMPTY:
                 available_moves.append((i, j))
+
+    for i in range(0, len(board)):
+        for j in range(0, len(board)):
+            if board[i][j] == Move.EMPTY:
+                board[i][j] = Move.X
+                if is_game_over(board):
+                    board[i][j] = Move.O
+                    return board
+                else:
+                    board[i][j] = Move.EMPTY
 
     move = random.choice(available_moves)
     board[move[0]][move[1]] = Move.O
