@@ -13,7 +13,9 @@ def ai_move(board):
             if board[i][j] == Move.EMPTY:
                 available_moves.append((i, j))
 
-    return random.choice(available_moves)
+    move = random.choice(available_moves)
+    board[move[0]][move[1]] = Move.O
+    return board
 
 
 def get_user_move(board):
