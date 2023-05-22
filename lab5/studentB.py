@@ -6,7 +6,14 @@ from studentA import Move
 random = Random()
 
 def ai_move(board):
-    pass
+    available_moves = []
+
+    for i in range(0, len(board)):
+        for j in range(0, len(board)):
+            if board[i][j] == Move.EMPTY:
+                available_moves.append((i, j))
+
+    return random.choice(available_moves)
 
 def get_user_move(board):
     available_moves = []
