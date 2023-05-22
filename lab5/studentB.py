@@ -2,6 +2,8 @@ from random import Random
 
 from studentA import Move
 
+import signal
+
 random = Random()
 
 
@@ -28,10 +30,28 @@ def get_user_move(board):
 
     while True:
         print("Enter your move:")
-        print("x: ")
-        x = int(input())
-        print("y: ")
-        y = int(input())
+        print("After 5 seconds, the AI will make a move.")
+
+        def handler(signum, frame):
+            raise Exception("timeout")
+        
+        signal.signal(signal.SIGALRM, handler)
+        signal.alarm(5)
+
+        try:
+            x = int(input("Row: "))
+            y = int(input("Column: "))
+            signal.alarm(0)
+        except Exception as e:
+            print("You took too long to make a move. AI will make a move.")
+            move = random.choice(available_moves)
+            x = move[0]
+            y = move[1]
+            print("AI chose row {} and column {}".format(x, y))
+            board[x][y] = Move.X
+            continue
+
+        signal.alarm(0)
 
         if (x, y) in available_moves:
             board[x][y] = Move.X
