@@ -45,7 +45,7 @@ def get_user_move(board):
         def handler(signum, frame):
             raise Exception("timeout")
         
-        signal.signal(signal.SIGALRM, handler)
+        signal.signal(signal.SIGALRM, handler) 
         signal.alarm(5)
 
         try:
@@ -59,7 +59,7 @@ def get_user_move(board):
             y = move[1]
             print("AI chose row {} and column {}".format(x, y))
             board[x][y] = Move.X
-            continue
+            return board
 
         signal.alarm(0)
 

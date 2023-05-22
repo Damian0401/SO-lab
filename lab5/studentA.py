@@ -37,23 +37,31 @@ def is_game_over(board) -> (bool, Move):
 
 
 def announce_outcome(board):
+    print_board(board)
+
     output = _check_diagonal(board)
     if output == Move.X:
         print("X's won!")
+        return
     elif output == Move.O:
         print("0's won!")
+        return
 
     output = _check_vertical(board)
     if output == Move.X:
         print("X's won!")
+        return
     elif output == Move.O:
         print("0's won!")
+        return
 
     output = _check_horizontal(board)
     if output == Move.X:
         print("X's won!")
+        return
     elif output == Move.O:
         print("0's won!")
+        return
 
     print("Game ended with a draw!")
 
