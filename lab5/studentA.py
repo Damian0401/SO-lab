@@ -111,7 +111,7 @@ def _check_vertical(board) -> Move:
     counter_o = 0
 
     for i in range(len(board)):
-        for j in range(board):
+        for j in range(len(board)):
 
             if board[j][i] == Move.X:
                 counter_x += 1
