@@ -20,7 +20,7 @@ def new_board(size=3):
     return board
 
 
-def is_game_over(board: List[List[Move]]) -> bool:
+def is_game_over(board) -> bool:
     for row in board:
         for element in row:
             if element == Move.EMPTY:
