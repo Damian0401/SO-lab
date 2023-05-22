@@ -4,7 +4,7 @@ from typing import List
 
 class Move(Enum):
     X = 1
-    Y = 2
+    O = 2
     EMPTY = 0
 
 
@@ -31,8 +31,10 @@ def print_board(board: List[List[Move]]):
     for row in board:
         for element in row:
             if element == Move.EMPTY:
-                print("0")
+                print("-", end="")
             elif element == Move.X:
-                print("X")
+                print("X", end="")
             else:
-                print("Y")
+                print("O", end="")
+
+        print()
